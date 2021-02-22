@@ -50,17 +50,17 @@
         //       dess värde genom att skriva minTextruta.value
 
         // Tips: Använd document.createElement för att skapa de olika elementen som behövs.
-
+        
         let rowIndex = 1;
         let txtRows = document.getElementById("txtRows");
 
+        let myTable = document.getElementById("myTable");
         let btn = document.getElementById("btAddRows");
         btn.onclick = function() {
             let txtRowsValue = parseInt(txtRows.value);
             
             if(!isNaN(txtRowsValue)) {
                 
-                let myTable = document.getElementById("myTable");
                 
                 for (let i = 0; i < txtRowsValue; i++) {
                     
@@ -80,38 +80,32 @@
                 alert("Ogiltig inmatning. Ange en siffra.");
             }
             txtRows.value = "";
+          
         }
 
 
+        // function addButtons() {
+        //     let tableRows = myTable.getElementsByTagName("tr");
 
+        //     for (const tableRow of tableRows) {
+        //         let rowIdCol = tableRow.cells;
+        //         let rowIdNum = rowIdCol[0].innerText;
 
-        // let myTable = document.getElementById("myTable");
-        // let btn = document.getElementById("btAddRows");
-       
-        // btn.onclick = function() {
-        // let numOfRows = document.getElementById("txtRows").value;
+        //         let button = document.createElement("button");
+        //         button.onclick = function() {alert(rowIdNum); };
+        //         button.innerText = "Klicka!";
 
-        // if(isNaN(numOfRows) || numOfRows < 1) {
-        //     alert("Ogiltig inmatning. Ange en siffra.");
-        // } else {
-        //     let tr = document.createElement("tr");
-        //     let td = document.createElement("td");
-        //     td.innerHTML = numOfRows;
-        //     for(rowIndex = 1; rowIndex < numOfRows; rowIndex++)
-        //     {
-        //         tr.appendChild(td);
-        //         myTable.appendChild(tr);
-
+        //         let td3 = document.createElement("td");
+        //         td3.appendChild(btn);
+        //         tableRow.appendChild(td3);
+                
         //     }
         // }
-        
-        // numOfRows = " ";
-        // }
 
 
-        // Din kod ...
 
 
+   
 
         // Extra: Gör så att en alert-ruta visas med radens index vid klick på raden.
 
