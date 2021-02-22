@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Training</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="playground">
+
+        <div>
+            Hur många rader skall skapas i tabellen:
+        </div>
+        <input type="text" id="txtRows" />
+
+        <button id="btAddRows">Lägg till rader i tabellen</button>
+
+        <div id="response" class="response">
+            <table id="myTable">
+                <thead>
+                    <th>Id</th>
+                    <th>Namn</th>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>Laban</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+
+        // UPPGIFT: Skapa nya rader i tabellen enligt den siffra som angivits i textrutan.
+
+        // Nollställ textrutan vid varje klick.
+
+        // Validera att användaren matade in ett nummer.
+
+        // Öka ID med 1 för varje rad som skapas.
+        // Sätt namn till "Namn-RAD_INDEX", dvs  för varje rad. Exempel: "Namn-4".
+
+        // Tips: Textrutan är en input, dvs ett formulärelement och du kommer åt
+        //       dess värde genom att skriva minTextruta.value
+
+        // Tips: Använd document.createElement för att skapa de olika elementen som behövs.
+
+        let rowIndex = 1;
+        let txtRows = document.getElementById("txtRows");
+
+        let btn = document.getElementById("btAddRows");
+        btn.onclick = function() {
+            let txtRowsValue = parseInt(txtRows.value);
+            
+            if(!isNaN(txtRowsValue)) {
+                
+                let myTable = document.getElementById("myTable");
+                
+                for (let i = 0; i < txtRowsValue; i++) {
+                    
+                    rowIndex++;
+                    let tr = document.createElement("tr");
+                    let td1 = document.createElement("td");
+                    td1.innerHTML = rowIndex;
+                    let td2 = document.createElement("td");
+                    td2.innerHTML = `Namn- ${rowIndex}` ;
+
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    myTable.appendChild(tr);
+                }
+                
+            } else {
+                alert("Ogiltig inmatning. Ange en siffra.");
+            }
+            txtRows.value = "";
+        }
+
+
+
+
+        // let myTable = document.getElementById("myTable");
+        // let btn = document.getElementById("btAddRows");
+       
+        // btn.onclick = function() {
+        // let numOfRows = document.getElementById("txtRows").value;
+
+        // if(isNaN(numOfRows) || numOfRows < 1) {
+        //     alert("Ogiltig inmatning. Ange en siffra.");
+        // } else {
+        //     let tr = document.createElement("tr");
+        //     let td = document.createElement("td");
+        //     td.innerHTML = numOfRows;
+        //     for(rowIndex = 1; rowIndex < numOfRows; rowIndex++)
+        //     {
+        //         tr.appendChild(td);
+        //         myTable.appendChild(tr);
+
+        //     }
+        // }
+        
+        // numOfRows = " ";
+        // }
+
+
+        // Din kod ...
+
+
+
+        // Extra: Gör så att en alert-ruta visas med radens index vid klick på raden.
+
+        // Skapa en funktion som körs varje gång man klickar på AddRows-knappen.
+
+        // Lägg till en knapp i en separat kolumn och glöm inte att även lägga till 
+        // kolumnen i tabell-huvudet.
+
+
+        
+        // Extra: Gör så att ett klick på knapp i rad visar namnet i en separat DIV.
+
+    </script>
+
+</body>
+
+</html>
